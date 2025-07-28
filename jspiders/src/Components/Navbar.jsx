@@ -45,8 +45,9 @@ const Navbar = () => {
   }, []);
   let onLogout = () => {
     localStorage.clear();
-    window.location.reload();
     navigate("/")
+    window.location.reload();
+    
   };
   function stringToColor(string) {
     let hash = 0;
