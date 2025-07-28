@@ -1,0 +1,4 @@
+/* @plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json"; */
+@import "tailwindcss";
+@import "react-alice-carousel/lib/alice-carousel.css";
