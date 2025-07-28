@@ -51,6 +51,8 @@ export default function Feedback() {
       console.log(res);
       getFeedbacks();
     }
+    setFeedback("");
+    setRating("")
   };
 
   return (
@@ -59,7 +61,7 @@ export default function Feedback() {
 
       <form
         onSubmit={handleSubmit}
-        className="min-h-[50%] w-[70%] max-w-2xl mx-auto bg-white p-6 rounded shadow-md"
+        className="min-h-[50%] w-[70%] max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-md"
       >
         <textarea
           value={feedback}
@@ -69,7 +71,7 @@ export default function Feedback() {
         ></textarea>
 
         <label htmlFor="rating" className="block mb-1 font-semibold">
-          Rating (1 to 10):
+          Rating (1 to 5):
         </label>
         <input
           id="rating"
@@ -78,14 +80,14 @@ export default function Feedback() {
           min={1}
           value={rating}
           onChange={(e) => setRating(e.target.value)}
-          placeholder="Enter Rating between 1 to 10."
+          placeholder="Enter Rating between 1 to 5."
           required
           className="w-full mb-4 p-2 border border-gray-300 rounded outline-none"
         />
 
         <button
           type="submit"
-          className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+          className="cursor-pointer bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600"
         >
           Submit Feedback
         </button>
@@ -98,10 +100,10 @@ export default function Feedback() {
         ) : (
           <ul className="space-y-4">
             {history.map((item, index) => (
-              <li key={index} className="bg-white p-4 rounded shadow">
+              <li key={index} className="bg-white p-4 rounded-2xl shadow">
                 <p className="mb-1">{item.description}</p>
                 <p className="text-sm text-gray-700 font-medium">
-                  Rating: {item.rating}/10
+                  Rating: {item.rating}/5
                 </p>
                 <span className="text-sm text-gray-500">
                   Submitted on{" "}
