@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { AxiosInstance } from "../Routes/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const UpdateForm = () => {
   let email = localStorage.getItem("email");
+  let navigate = useNavigate()
     let [user, setUser] = useState("");
     let getUser = async (email) => {
       let res = await AxiosInstance.get(`/users/email?email=${email}`);
@@ -40,6 +42,7 @@ const UpdateForm = () => {
         },
       });
       toast.success("Profile Updated");
+      navigate("/profile")
     } catch (error) {
       toast.error("Update Failed");
       console.error(error);
