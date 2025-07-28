@@ -106,13 +106,13 @@ const Payment = () => {
             </li>
             <li className="flex justify-between">
               <span>Fees:</span>
-              <span>₹25,000</span>
+              <span>₹36,000</span>
             </li>
           </ul>
           <hr className="my-2" />
           <div className="flex justify-between font-bold text-orange-700 text-lg">
             <span>Total:</span>
-            <span>₹25,000</span>
+            <span>₹36,000</span>
           </div>
         </div>
       </div>
