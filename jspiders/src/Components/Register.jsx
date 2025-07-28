@@ -3,6 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { AxiosInstance } from "../Routes/axiosInstance";
 import { toast } from "react-toastify";
 const Register = () => {
+  function capitalizeWords(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .filter(Boolean) // removes empty spaces
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
   let navigate = useNavigate();
   let [formData, setFromData] = useState({
     name: "",
@@ -39,11 +47,12 @@ const Register = () => {
     e.preventDefault();
     try {
       let response = await AxiosInstance.post("/auth/register", {
-        name: formData.name,
+        name: capitalizeWords(formData.name),
         email: formData.email,
         password: formData.password,
       });
       let data = response.data.message;
+      console.log(response.data.name);
       let authUser = await AxiosInstance.post("/auth/login",{
       email : formData.email,
       password : formData.password
@@ -54,6 +63,7 @@ const Register = () => {
       localStorage.setItem("email",formData.email)
     }
       console.log(data);
+      
       toast.success(data);
       setFromData({
         name: "",

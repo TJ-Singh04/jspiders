@@ -34,12 +34,12 @@ const Dashboard = () => {
   }, [user]);
 
   return (
-    <div className="bg-orange-50 p-8">
+    <div className="bg-orange-50 rounded-2xl p-8">
       <h1 className="text-3xl font-bold text-orange-600 mb-6">
         Welcome, {user.name}!
       </h1>
 
-      <div className="bg-white p-6 rounded-xl shadow-md">
+      <div className="bg-white p-6 rounded-2xl shadow-md">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">
           Your Courses
         </h2>
